@@ -1,4 +1,4 @@
-import { geminiChat } from "@/lib/gemini";
+import { groqChat } from "@/lib/groq";
 
 export async function POST(req) {
   let subject, topic, interest;
@@ -9,28 +9,29 @@ export async function POST(req) {
     topic = body.topic;
     interest = body.interest;
 
-    const systemPrompt = `You are an expert AI tutor specializing in ${subject}. Your teaching style is:
-1. Use analogies and examples related to ${interest} to make concepts relatable
-2. Break down complex topics into simple, digestible explanations
-3. Use storytelling and real-world scenarios
-4. Be encouraging and enthusiastic
-5. Include practical examples and applications
-6. Use emojis sparingly to make content engaging
+    const systemPrompt = `You are a friendly tutor specializing in ${subject}. Keep explanations SIMPLE and SHORT.
 
-Your goal is to make ${topic} easy to understand by connecting it to ${interest}.`;
+Your teaching style:
+1. Use ${interest} analogies that anyone can understand
+2. Use everyday language - NO jargon
+3. Keep it under 200 words
+4. Make it fun and relatable
+5. Use "like" and "think of it as" comparisons
 
-    const userMessage = `Explain "${topic}" in ${subject} using analogies and examples from ${interest}. 
+Your goal is to make ${topic} easy to understand using ${interest}.`;
 
-Structure your explanation as follows:
-1. Start with a relatable hook connecting to ${interest}
-2. Explain the core concept in simple terms
-3. Provide a detailed analogy using ${interest}
-4. Give a real-world application example
-5. End with a key takeaway
+    const userMessage = `Explain "${topic}" in ${subject} using simple ${interest} analogies.
 
-Make it engaging, clear, and memorable. Use around 300-400 words.`;
+Structure (keep SHORT):
+1. Start with a ${interest} hook (1 sentence)
+2. Explain the concept simply (2-3 sentences)
+3. Give a ${interest} analogy (2-3 sentences)
+4. Real-world example (1-2 sentences)
+5. Key takeaway (1 sentence)
 
-    const explanation = await geminiChat(
+Keep it under 200 words total. Use simple, everyday language.`;
+
+    const explanation = await groqChat(
       [{ role: "user", content: userMessage }],
       systemPrompt
     );
