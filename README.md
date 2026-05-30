@@ -1,4 +1,4 @@
-# 🎓 AI Study Planner - Personalized Learning Platform
+# 🎓 LearnSphere - Personalized Learning Platform
 
 > Transform complex concepts into engaging, personalized lessons using AI-powered analogies tailored to your interests.
 
@@ -27,7 +27,7 @@
 
 ## 🌟 Overview
 
-**AI Study Planner** is an innovative educational platform that revolutionizes how students learn complex subjects. Instead of generic textbook explanations, it uses AI to create personalized lessons using analogies from topics students are passionate about - whether that's gaming, music, football, cooking, anime, or movies.
+**LearnSphere** is an innovative educational platform that revolutionizes how students learn complex subjects. Instead of generic textbook explanations, it uses AI to create personalized lessons using analogies from topics students are passionate about - whether that's gaming, music, football, cooking, anime, or movies.
 
 ### The Problem We Solve
 
